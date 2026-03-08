@@ -1,6 +1,6 @@
 name: firebase_github_updater
 description: A Flutter package for automatic app updates via Firebase Firestore and GitHub releases with beautiful UI.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/DevStudio2k25/firebase_github_updater
 repository: https://github.com/DevStudio2k25/firebase_github_updater
 issue_tracker: https://github.com/DevStudio2k25/firebase_github_updater/issues

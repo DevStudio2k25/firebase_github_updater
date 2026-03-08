@@ -1,3 +1,9 @@
+## 0.0.4
+
+- Added FirebaseGithubUpdaterHelper for one-line integration
+- Now you can just call checkAndShowUpdate() - handles everything automatically
+- Simplified usage with callbacks for update complete, no update, and errors
+
 ## 0.0.3
 
 - Further downgraded Dart SDK to >=2.17.0 for maximum compatibility

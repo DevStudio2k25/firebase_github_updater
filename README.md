@@ -69,10 +69,30 @@ void main() async {
 
 ## Usage
 
+### Simple - One Line Integration
+
 ```dart
 import 'package:firebase_github_updater/firebase_github_updater.dart';
 
-// Check for updates
+// Just call this - it handles everything automatically!
+await FirebaseGithubUpdaterHelper.checkAndShowUpdate(
+  context: context,
+  collectionName: 'app_releases',
+  packageName: 'com.example.app',
+  currentVersion: '1.0.0',
+  currentBuildNumber: 1,
+  onUpdateComplete: () {
+    print('Update completed!');
+  },
+);
+```
+
+### Advanced - Manual Control
+
+```dart
+import 'package:firebase_github_updater/firebase_github_updater.dart';
+
+// Check for updates manually
 final updater = FirebaseUpdaterService(
   collectionName: 'app_releases',
   currentVersion: '1.0.0',
@@ -83,7 +103,12 @@ final updater = FirebaseUpdaterService(
 final update = await updater.checkForUpdate();
 
 if (update != null) {
+  // Show bottom sheet
   UpdateBottomSheet.show(context, update);
+  
+  // Or use download/install services directly
+  final downloadService = DownloadService();
+  final installService = InstallService();
 }
 ```
 

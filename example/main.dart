@@ -32,24 +32,23 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _checkForUpdates() async {
-    final updater = FirebaseUpdaterService(
+    // Simple one-liner - automatically shows bottom sheet if update available
+    await FirebaseGithubUpdaterHelper.checkAndShowUpdate(
+      context: context,
       collectionName: 'app_releases',
       currentVersion: '1.0.0',
       currentBuildNumber: 1,
       packageName: 'com.example.app',
+      onUpdateComplete: () {
+        print('Update completed!');
+      },
+      onNoUpdate: () {
+        print('Already on latest version');
+      },
+      onError: (error) {
+        print('Error checking update: $error');
+      },
     );
-
-    final update = await updater.checkForUpdate();
-
-    if (update != null && mounted) {
-      UpdateBottomSheet.show(
-        context,
-        update,
-        onUpdateComplete: () {
-          // Update completed
-        },
-      );
-    }
   }
 
   @override
