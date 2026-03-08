@@ -1,3 +1,7 @@
+## 0.0.3
+
+- Further downgraded Dart SDK to >=2.17.0 for maximum compatibility
+
 ## 0.0.2
 
 - Downgraded Dart SDK requirement to >=3.0.0 for broader compatibility
